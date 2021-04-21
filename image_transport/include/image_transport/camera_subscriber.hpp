@@ -80,8 +80,7 @@ public:
                    rmw_qos_profile_t = rmw_qos_profile_default);
 
   IMAGE_TRANSPORT_PUBLIC
-  CameraSubscriber(
-                   rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_base_interface,
+  CameraSubscriber(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_base_interface,
                    rclcpp::node_interfaces::NodeTopicsInterface::SharedPtr node_topics_interface,
                    rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr node_logging_interface,
                    const std::string& base_topic,

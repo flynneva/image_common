@@ -139,6 +139,19 @@ CameraSubscriber::CameraSubscriber(
       std::bind(&Impl::checkImagesSynchronized, impl_.get()));
 }
 
+CameraSubscriber::CameraSubscriber(
+  rclcpp::node_interfaces::NodeBaseInterface::SharedPtr node_base_interface,
+  rclcpp::node_interfaces::NodeTopicsInterface::SharedPtr node_topics_interface,
+  rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr node_logging_interface,
+  const std::string & base_topic,
+  const Callback & callback,
+  const std::string & transport,
+  rmw_qos_profile_t custom_qos)
+: impl_(std::make_shared<Impl>(node_logging_interface))
+{
+
+}
+
 std::string CameraSubscriber::getTopic() const
 {
   if (impl_) {return impl_->image_sub_.getTopic();}
